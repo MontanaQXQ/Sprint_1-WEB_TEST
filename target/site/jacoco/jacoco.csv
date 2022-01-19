@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+YandexPraktikumSamokat,ru.yandex.praktikum,Landing,32,811,0,0,5,132,1,37,1,37
+YandexPraktikumSamokat,ru.yandex.praktikum,OrderingForWhoom,0,78,0,0,0,21,0,8,0,8
+YandexPraktikumSamokat,ru.yandex.praktikum,OrderingFormAboutOrder,87,3,0,0,22,1,9,1,9,1

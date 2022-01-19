@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="30" failures="0" name="ru.yandex.praktikum.LandingTest" time="21.786" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.13+8-LTS"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.13_8\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\DAbretsov\Desktop\Scuter_Test"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\DAbretsov\Desktop\Scuter_Test"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="11.0.13+8-LTS"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\DABRET~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Users\DAbretsov\JAVA_MAVEN\apache-maven-3.8.3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.13_8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Amazon Corretto\jdk11.0.13_8\bin;C:\Python39\Scripts\;C:\Python39\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\DAbretsov\AppData\Local\Microsoft\WindowsApps;C:\Users\DAbretsov\AppData\Roaming\npm;C:\Users\DAbretsov\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2021.1.2\bin;;C:\Users\DAbretsov\JAVA_MAVEN\apache-maven-3.8.3\bin;C:\Users\DAbretsov\Desktop\DAbretsov\Документы\WebDriver\bin;;."/>
+    <property name="maven.conf" value="C:\Users\DAbretsov\JAVA_MAVEN\apache-maven-3.8.3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Users\DAbretsov\JAVA_MAVEN\apache-maven-3.8.3\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\DAbretsov"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="user.name" value="DAbretsov"/>
+    <property name="java.class.path" value="C:\Users\DAbretsov\JAVA_MAVEN\apache-maven-3.8.3\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher verify"/>
+    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.13_8"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.13"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="sun.stderr.encoding" value="cp866"/>
+    <property name="maven.home" value="C:\Users\DAbretsov\JAVA_MAVEN\apache-maven-3.8.3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="Corretto-11.0.13.8.1"/>
+    <property name="sun.stdout.encoding" value="cp866"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testStatusOrderThree" time="0.584"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testImageScooterTwo" time="0.367"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testDeriveText" time="0.495"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testHowItWork" time="0.635"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatWeightText" time="0.6"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testDeliverText" time="0.516"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testQuestionsAboutSamokat" time="0.523"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testDeliverSubText" time="0.443"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatModel" time="0.5"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatWeight" time="0.53"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testButtonGoOrder" time="1.527"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatTwoDaysSubTextTwo" time="0.615"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testImageScooter" time="2.166"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatMaxSpeed" time="0.67"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testMakeOrderText" time="3.37"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatTwoDays" time="0.467"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testHeaderButtonOrder" time="0.735"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatMileageWithoutChardge" time="0.785"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testCourierReturnsamokatText" time="0.553"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testFooterOrder" time="0.426"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatMaxSpeedText" time="0.468"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testMakeOrderSubText" time="0.551"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testStatusOrderOne" time="0.511"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testStatusOrderTwo" time="0.425"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testCourierReturnsamokatSubText" time="0.499"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testSamokatTwoDaysSubText" time="0.375"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testplaceHolder" time="0.982"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testDeriveSubText" time="0.482"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testStatusOrderButton" time="0.528"/>
+  <testcase classname="ru.yandex.praktikum.LandingTest" name="testStatusOrderFoure" time="0.458"/>
+</testsuite>

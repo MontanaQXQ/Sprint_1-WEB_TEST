@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderingFormAboutOrder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">YandexPraktikumSamokat</a> &gt; <a href="index.source.html" class="el_package">ru.yandex.praktikum</a> &gt; <span class="el_source">OrderingFormAboutOrder.java</span></div><h1>OrderingFormAboutOrder.java</h1><pre class="source lang-java linenums">package ru.yandex.praktikum;
+
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+
+<span class="fc" id="L11">public class OrderingFormAboutOrder {</span>
+
+
+    //локатор для поля  Когда привезти самокат
+    @FindBy(how = How.XPATH,using = &quot;.//input[@placeholder='* Когда привезти самокат']&quot;)
+    private SelenideElement dateField;
+
+    //локатор для выбора срока аренды
+    @FindBy(how = How.CLASS_NAME,using = &quot;Dropdown-control&quot;)
+    private SelenideElement arendaDay;
+
+    //локатор для выбора срока аренды в выпадающем меню
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'трое суток')]&quot;)
+    private SelenideElement setArendaDay;
+
+    //локатор для кнопки цвет самоката
+    @FindBy(how = How.XPATH,using = &quot;//*[@id=\&quot;black\&quot;]&quot;)
+    private SelenideElement colorField;
+
+    //локатор для поля Коментарий для курьера
+    @FindBy(how = How.XPATH,using = &quot;.//input[@placeholder='Комментарий для курьера']&quot;)
+    private SelenideElement commentField;
+
+
+    //локатор для кнопки Заказать в конце заполнения форм
+    @FindBy(how = How.XPATH,using = &quot;//div[@class='Order_Buttons__1xGrp']/button[@class='Button_Button__ra12g Button_Middle__1CSJM']&quot;)
+    private SelenideElement makeOrder;
+
+    //Локатор всплывающего меню подтверждения заказа с кнопками &quot;ДА&quot; &quot;НЕТ&quot;
+    @FindBy(how = How.CLASS_NAME,using =&quot;Order_ModalHeader__3FDaJ&quot;)
+    private SelenideElement modalHeader;
+
+    //локатор для кнопки Да &quot; Хотите оформить заказ?&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Да')]&quot;)
+    private SelenideElement makeOrderСonfirm;
+
+
+    //Локатор кнопки Посмотреть заказ
+    @FindBy(how = How.XPATH,using =&quot;//div[@class='Order_NextButton__1_rCA']/button[text()='Посмотреть статус']&quot;)
+    private SelenideElement showOrderButton;
+
+
+
+
+    // метод клика кнопки заказать в конце заполнения форм
+    public void clickMakeOrder(){
+<span class="nc" id="L57">        makeOrder.shouldBe(Condition.visible).click();</span>
+
+<span class="nc" id="L59">    }</span>
+
+    //Метод Проверки всплывающего окна подтверждения заказа
+    public void checkModalHeader(){
+<span class="nc" id="L63">        modalHeader.should(Condition.visible);</span>
+<span class="nc" id="L64">    }</span>
+
+    // метод клика кнопки для кнопки Да &quot; Хотите оформить заказ?&quot;
+    public void clickMakeСonfirm(){
+<span class="nc" id="L68">       makeOrderСonfirm.shouldBe(Condition.visible).click();</span>
+<span class="nc" id="L69">     }</span>
+
+    // метод проверки кнопки &quot;Посмотреть статус&quot;
+    public void ceckСonfirm(){
+<span class="nc" id="L73">        showOrderButton.shouldBe(Condition.visible);}</span>
+
+
+    //метод заполнения даты поля
+    public void setDate(String date){
+<span class="nc" id="L78">        dateField.setValue(date);</span>
+<span class="nc" id="L79">        dateField.sendKeys(Keys.ENTER);</span>
+<span class="nc" id="L80">    }</span>
+    // метод выбора срока аренды
+    public void setArenda(){
+<span class="nc" id="L83">        arendaDay.click();</span>
+<span class="nc" id="L84">        setArendaDay.click();</span>
+<span class="nc" id="L85">    }</span>
+
+
+    //метод выбора цвета самоката
+    public void setColor(){
+<span class="nc" id="L90">        colorField.click();</span>
+<span class="nc" id="L91">    }</span>
+
+    //метод заполнения комментария курьера
+    public void setComment(String comment){
+<span class="nc" id="L95">        commentField.setValue(comment);</span>
+<span class="nc" id="L96">    }</span>
+
+    //метод заполнения данных
+    public void  orderingFullSecondForm(String date,String comment) {
+<span class="nc" id="L100">        setDate(date);</span>
+<span class="nc" id="L101">        setArenda();</span>
+<span class="nc" id="L102">        setColor();</span>
+<span class="nc" id="L103">        setComment(comment);</span>
+<span class="nc" id="L104">    }</span>
+
+
+
+
+
+
+
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

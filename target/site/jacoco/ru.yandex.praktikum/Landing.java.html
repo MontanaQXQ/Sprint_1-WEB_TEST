@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Landing.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">YandexPraktikumSamokat</a> &gt; <a href="index.source.html" class="el_package">ru.yandex.praktikum</a> &gt; <span class="el_source">Landing.java</span></div><h1>Landing.java</h1><pre class="source lang-java linenums">package ru.yandex.praktikum;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
+
+
+<span class="fc" id="L15">public class Landing {</span>
+
+    //локатор лого Яндекс в Логотипе &quot;Яндекс Самокат&quot;
+    @FindBy(how = How.CLASS_NAME,using = &quot;Header_LogoYandex__3TSOI&quot;)
+    private SelenideElement yandexButton;
+
+    //локатор лого самокат в Логотипе &quot;Яндекс Самокат&quot;
+    @FindBy(how = How.CLASS_NAME,using = &quot;Header_LogoScooter__3lsAR&quot;)
+    private SelenideElement scooterButton;
+
+    //локатор кнопки &quot;Заказать&quot; в шапке страницы
+    @FindBy(how = How.CLASS_NAME,using = &quot;Button_Button__ra12g&quot;)
+    private SelenideElement headerButtonOrder;
+
+    //локатор кнопки статуса заказа
+    @FindBy(how = How.CLASS_NAME,using = &quot;Header_Link__1TAG7&quot;)
+    private SelenideElement statusOrderButton;
+
+    //локатор поля ввода номера заказа
+    @FindBy(how = How.XPATH,using = &quot;.//input[@placeholder='Введите номер заказа']&quot;)
+    private SelenideElement entryField;
+
+    //Локатор кнопки GO! для поиска статуса заказа
+    @FindBy(how = How.XPATH,using = &quot;.//div[@class='Header_SearchInput__3YRIQ']/button[@class='Button_Button__ra12g Header_Button__28dPO']&quot;)
+    private SelenideElement buttonGO;
+
+
+    //Локатор картинки скутера не закрашенной
+    @FindBy(how = How.XPATH,using =&quot;.//div[@class='Home_FirstPart__3g6vG']/div[@class='Home_BluePrint__TGX2n']/img[@alt='Scooter blueprint']&quot;)
+    private SelenideElement imgScooter;
+
+    //Локатор картинки скутера  закрашенной
+    @FindBy(how = How.XPATH,using =&quot;.//div[@class='Home_FirstPart__3g6vG']/div[@class='Home_Scooter__3YdJy']/img[@alt='Scooter blueprint']&quot;)
+    private SelenideElement imgScooterTwo;
+
+    //Локатор самокат на пару дней.
+    @FindBy(how = How.CLASS_NAME,using =&quot;Home_Header__iJKdX&quot;)
+    private SelenideElement samokatTwoDays;
+
+    //Локатор текста &quot;Привезём его прямо к вашей двери&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//div[@class='Home_Header__iJKdX']/div[@class='Home_SubHeader__zwi_E']&quot;)
+    private SelenideElement samokatTwoDaysSubText;
+
+
+
+
+    //Локатор текста &quot;Привезём его прямо к вашей двери&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Он лёгкий и с мощными колёсами— самое то, чтобы ехать по набережной и нежно барабанить пальцами по рулю')]&quot;)
+    private SelenideElement samokatTwoDaysSubTextTwo;
+
+
+    //Локатор текста Модель Toxic PRO
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Модель Toxic PRO')]&quot;)
+    private SelenideElement samokatModel;
+    //Проверка локатора Модель Toxic PRO
+
+    //Локатор текста &quot;Максимальная скорость&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Максимальная скорость')]&quot;)
+    private SelenideElement samokatMaxSpeedText;
+
+
+    //Локатор текста 40 км/ч
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'40 км/ч')]&quot;)
+    private SelenideElement samokatMaxSpeed;
+
+    //Локатор текста Проедет без поздарядки
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Проедет без поздарядки')]&quot;)
+    private SelenideElement samokatMileageWithouChargeText;
+
+
+    //Локатор текста 80 км'
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'80 км')]&quot;)
+    private SelenideElement samokatMileageWithouCharge;
+
+
+    //Локатор текста Выдерживает вес
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Выдерживает вес')]&quot;)
+    private SelenideElement samokatWeightStrengthText;
+
+
+    //Локатор текста 120 кг'
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'120 кг')]&quot;)
+    private SelenideElement samokatWeightStrength;
+    //Проверка локатора 120 кг'
+
+
+
+
+    //Локатор текста &quot;Как это работает&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Как это работает')]&quot;)
+    private SelenideElement howItWork;
+
+    //Локатор для кружка статуса заказа номер 1
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[1]/div[1]&quot;)
+    private SelenideElement circleOrderOne;
+
+    //Локатор для кружка статуса заказа номер 2
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[2]/div[1]&quot;)
+    private SelenideElement circleOrderTwo;
+
+    //Локатор для кружка статуса заказа номер 3
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[3]/div[1]&quot;)
+    private SelenideElement circleOrderThree;
+
+    //Локатор для кружка статуса заказа номер 4
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[4]/div[1]&quot;)
+    private SelenideElement circleOrderFoure;
+
+
+    //Локатор для &quot;Заказываете самокат&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Заказываете самокат')]&quot;)
+    private SelenideElement makeOrderText;
+
+    //Локатор для &quot;Выбираете, когда и куда привезти&quot;
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[1]/div[2]/div[2]&quot;)
+    private SelenideElement makeOrderSubText;
+
+    //Локатор для &quot;Курьер привозит самокат&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Курьер привозит самокат')]&quot;)
+    private SelenideElement deliverText;
+
+    //Локатор для &quot;А вы — оплачиваете аренду&quot;
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[2]/div[2]/div[2]&quot;)
+    private SelenideElement deliverSubText;
+
+    //Локатор для &quot;Катаетесь&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Катаетесь')]&quot;)
+    private SelenideElement driveText;
+
+
+    //Локатор для &quot;Сколько часов аренды осталось — видно на сайте&quot;
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[3]/div[2]/div[2]&quot;)
+    private SelenideElement driveSubText;
+
+
+    //Локатор для &quot;Курьер забирает самокат&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Курьер забирает самокат')]&quot;)
+    private SelenideElement CourierRreturnSamokatText;
+
+
+    //Локатор для &quot;Когда аренда заканчивается&quot;
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[4]/div[2]/div[2]&quot;)
+    private SelenideElement CourierRreturnSamokatSubText;
+
+
+    //Локатор  для нижней кнопки  &quot;Заказать&quot;
+    @FindBy(how = How.XPATH,using =&quot;//*[@id=\&quot;root\&quot;]/div/div/div[4]/div[2]/div[5]/button&quot;)// не работает почему то //div[@class='Home_FinishButton__1_cWm']/button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']&quot;)
+    private SelenideElement footerOrder;
+
+
+
+
+    //Локатор текста &quot;Как это работает&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Вопросы о важном')]&quot;)
+    private SelenideElement questionsAboutSamokat;
+
+    // Локатор первой кнопки аккардиона &quot;Сколько это стоит и как оплатить?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-0&quot;)
+    private SelenideElement accardionOne;
+
+
+    //локатор Текста первой кнопки аккардиона
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Сутки — 400 рублей. Оплата курьеру — наличными или картой')]&quot;)
+    private SelenideElement accardionOneText;
+
+
+    // локатор второй кнопки аккардиона &quot;Хочу сразу несколько самокатов! Так можно?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-1&quot;)
+    private SelenideElement accardionTwo;
+
+
+    //локатор Текста второй кнопки аккардиона &quot;Пока что у нас так....&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.')]&quot;)
+    private SelenideElement accardionTwoText;
+
+
+    // локатор Тртей кнопки аккардиона &quot;Как рассчитывается время аренды?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-2&quot;)
+    private SelenideElement accardionThree;
+
+    //локатор Текста третей кнопки аккардиона &quot;Допустим, вы оформляете заказ на 8 мая......&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.')]&quot;)
+    private SelenideElement accardionThreeText;
+
+
+    // локатор четвертой кнопки аккардиона &quot;Можно ли заказать самокат прямо на сегодня?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-3&quot;)
+    private SelenideElement accardionFoure;
+
+
+    //локатор Текста четвертой кнопки аккардиона &quot;Можно ли заказать самокат прямо на сегодня?&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Только начиная с завтрашнего дня. Но скоро станем расторопнее.')]&quot;)
+    private SelenideElement accardionFoureText;
+
+
+    // локатор Пятой кнопки аккардиона &quot;Можно ли продлить заказ или вернуть самокат раньше?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-4&quot;)
+    private SelenideElement accardionFive;
+
+    //локатор Текста Пятой кнопки аккардиона &quot;Пока что нет!...&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.')]&quot;)
+    private SelenideElement accardionFiveText;
+
+
+    // локатор Шестой кнопки аккардиона &quot;Вы привозите зарядку вместе с самокатом?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-5&quot;)
+    private SelenideElement accardionSix;
+
+
+    //локатор Текста Шестой кнопки аккардиона &quot;Самокат приезжает к вам с полной зарядкой....&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.')]&quot;)
+    private SelenideElement accardionSixText;
+
+
+    // локатор Седьмой кнопки аккардиона &quot;Можно ли отменить заказ?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-6&quot;)
+    private SelenideElement accardionSeven;
+
+    //локатор Текста седьмой кнопки аккардиона &quot;Да, пока самокат не привезли. Штрафа не будет....&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.')]&quot;)
+    private SelenideElement accardionSevenText;
+
+
+    // локатор Восьмой кнопки аккардиона &quot;Я жизу за МКАДом, привезёте?&quot;
+    @FindBy(how = How.ID,using =&quot;accordion__heading-7&quot;)
+    private SelenideElement accardionEight;
+
+    //локатор Текста Восьмой кнопки аккардиона &quot;Да, обязательно. Всем самокатов! И Москве, и Московской области.&quot;
+    @FindBy(how = How.XPATH,using =&quot;.//*[contains(text(),'Да, обязательно. Всем самокатов! И Москве, и Московской области.')]&quot;)
+    private  SelenideElement AccardionEightText;
+
+    @FindBy(how = How.ID,using = &quot;rcc-confirm-button&quot;)
+    private SelenideElement cookies;
+    //Локатор кнопки куки
+
+    @FindBy(how = How.CLASS_NAME,using = &quot;accordion&quot;)
+    private SelenideElement accardion;
+
+
+    //Локатор стрелки выпадающего списка
+<span class="fc" id="L255">    private  ElementsCollection arrowsButton = $$(byClassName(&quot;accordion__item&quot;));</span>
+
+
+
+
+    //клик по лого Яндекс в Логотипе &quot;Яндекс Самокат&quot;
+    public void clickYandexLogo(){
+<span class="fc" id="L262">        yandexButton.shouldBe(visible);</span>
+<span class="fc" id="L263">        String chord = Keys.chord(Keys.LEFT_CONTROL, Keys.ENTER);</span>
+<span class="fc" id="L264">        yandexButton.sendKeys(chord );</span>
+<span class="fc" id="L265">        switchTo().window(1);</span>
+<span class="fc" id="L266">        $(byXpath(&quot;//*[@id=\&quot;text\&quot;]&quot;)).shouldBe(visible);</span>
+<span class="fc" id="L267">    }</span>
+
+    //клик по лого Самокат в Логотипе &quot;Яндекс Самокат&quot; средней кнопкой мыши
+    //Переходим во вторую открывшуюся вкладку
+    public void clickScooterLogo(){
+<span class="fc" id="L272">        scooterButton.shouldBe(visible);</span>
+<span class="fc" id="L273">        String chord = Keys.chord(Keys.LEFT_CONTROL, Keys.ENTER);</span>
+<span class="fc" id="L274">        scooterButton.sendKeys(chord );</span>
+<span class="fc" id="L275">        switchTo().window(1);</span>
+<span class="fc" id="L276">        scooterButton.should(exist);</span>
+<span class="fc" id="L277">    }</span>
+
+
+
+    //клик по кнопке &quot;Заказать&quot; в шапке страницы
+    public void clickHeaderButtonOrder(){
+<span class="fc" id="L283">        headerButtonOrder.scrollTo().shouldBe(visible).click();</span>
+<span class="fc" id="L284">        $(byXpath(&quot;.//*[contains(text(),'Для кого самокат')]&quot;)).shouldBe(exist);</span>
+<span class="fc" id="L285">        System.out.println($(byXpath(&quot;.//*[contains(text(),'Для кого самокат')]&quot;)).shouldBe(exist));</span>
+<span class="fc" id="L286">    }</span>
+
+    //клик по кнопке статсуа заказа в шапке странице
+    public void clickStatusOrderButton() {
+//        statusOrderButton.scrollTo().shouldBe(Condition.visible).click();
+<span class="fc" id="L291">        checker(statusOrderButton, visible);</span>
+<span class="fc" id="L292">    }</span>
+
+    //**КЛИК ПО ПЛЭЙСХОЛДЕРУ**//
+    //клик по кнопке статсуа заказа в шапке странице
+    //клик по полю статуса заказа
+
+    public void clickPlaceHolder() {
+<span class="fc" id="L299">        checker(statusOrderButton, visible);</span>
+//        statusOrderButton.scrollTo().shouldBe(Condition.visible).click();
+<span class="fc" id="L301">        entryField.shouldBe(visible).click();</span>
+<span class="fc" id="L302">    }</span>
+
+    private void checker(SelenideElement element,Condition condition){
+<span class="fc" id="L305">        element.scrollTo().shouldBe(condition).click();</span>
+<span class="fc" id="L306">    }</span>
+
+    //**КЛИК ПО ПЛЭЙСХОЛДЕРУ, ВВОД НСЕУЩЕСТВУЮЩЕГО ЗАКАЗА И НАЖАИТЕ КНОПКИ GO!**//
+    //клик по кнопке статсуа заказа в шапке странице
+    //клик по плэйсхолдеру
+    //ввод в плэйсхолдер несуществующего заказа &quot;123456&quot;
+    //Нажатие кнопки GO!
+    public void clickGoButton() {
+<span class="fc" id="L314">        statusOrderButton.shouldBe(visible).click();</span>
+<span class="fc" id="L315">        entryField.shouldBe(visible).click();</span>
+<span class="fc" id="L316">        entryField.setValue(String.valueOf(123456));</span>
+<span class="fc" id="L317">        buttonGO.shouldBe(visible).click();</span>
+<span class="fc" id="L318">        $(byClassName(&quot;Track_NotFound__6oaoY&quot;)).shouldBe(visible);</span>
+<span class="fc" id="L319">    }</span>
+
+    //проверка что нашли локатор картинки незакрашенного скутера.
+    public void findeImgScooter(){
+<span class="fc" id="L323">        imgScooter.shouldBe(exist);</span>
+<span class="fc" id="L324">        System.out.println(imgScooter);</span>
+<span class="fc" id="L325">    }</span>
+
+    //проверка что нашли локатор картинки закрашенного скутера.
+    public void findeImgScooterTwo(){
+<span class="fc" id="L329">        imgScooterTwo.shouldBe(exist);</span>
+<span class="fc" id="L330">        System.out.println(imgScooterTwo);</span>
+<span class="fc" id="L331">    }</span>
+
+    // проверка тчо нашли самокат на пару дней
+    public void findeSamokatTwoDays(){
+<span class="fc" id="L335">        samokatTwoDays.shouldBe(exist);</span>
+<span class="fc" id="L336">        System.out.println(samokatTwoDays);</span>
+<span class="fc" id="L337">    }</span>
+
+    // проверка тчо нашли локатор  &quot;Привезём его прямо к вашей двери&quot;
+    public void  findeSamokatTwoDaysSubText(){
+<span class="fc" id="L341">        samokatTwoDaysSubText.shouldBe(exist);</span>
+<span class="fc" id="L342">        System.out.println(samokatTwoDaysSubText);</span>
+<span class="fc" id="L343">    }</span>
+
+    //СКРОЛИМ ДО ПОЯВЛЕНИЯ ХАРАКТЕРИСТИК САМОКАТА И ИЩЕМ ЭЛЕМЕНТЫ
+    // проверка тчо нашли локатор  &quot;Привезём его прямо к вашей двери&quot;
+    public void  findeSamokatTwoDaysSubTextTwo(){
+<span class="fc" id="L348">        samokatTwoDaysSubTextTwo.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L349">        samokatTwoDaysSubTextTwo.getText();</span>
+<span class="fc" id="L350">        samokatTwoDaysSubTextTwo.shouldBe(have(exactText(&quot;Он лёгкий и с мощными колёсами— самое то, чтобы ехать по набережной и нежно барабанить пальцами по рулю&quot;)));</span>
+<span class="fc" id="L351">        System.out.println(samokatTwoDaysSubTextTwo);</span>
+<span class="fc" id="L352">    }</span>
+
+    public void  findeSamokatModel(){
+<span class="fc" id="L355">        samokatModel.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L356">        samokatModel.getText();</span>
+<span class="fc" id="L357">        samokatModel.shouldBe(have(exactText(&quot;Модель Toxic PRO&quot;)));</span>
+<span class="fc" id="L358">        System.out.println(samokatModel);</span>
+<span class="fc" id="L359">    }</span>
+
+    //Проверка локатора &quot;Максимальная скорость&quot;
+    public void  findeSamokatMaxSpeedText(){
+<span class="fc" id="L363">        samokatMaxSpeedText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L364">        samokatMaxSpeedText.getText();</span>
+<span class="fc" id="L365">        samokatMaxSpeedText.shouldBe(have(exactText(&quot;Максимальная скорость&quot;)));</span>
+<span class="fc" id="L366">        System.out.println( samokatMaxSpeedText);</span>
+<span class="fc" id="L367">    }</span>
+
+    //СКРОЛИМ ДО ПОЯВЛЕНИЯ ХАРАКТЕРИСТИК САМОКАТА И ИЩЕМ ЭЛЕМЕНТЫ
+
+    //Проверка локатора 40 км/ч
+    public void  findeSamokatMaxSpeed(){
+<span class="fc" id="L373">        samokatMaxSpeed.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L374">        samokatMaxSpeed.getText();</span>
+<span class="fc" id="L375">        samokatMaxSpeed.shouldBe(have(exactText(&quot;40 км/ч&quot;)));</span>
+<span class="fc" id="L376">        System.out.println(samokatMaxSpeed);</span>
+<span class="fc" id="L377">    }</span>
+    //Проверка локатора Проедет без поздарядки'
+    public void  findeSamokatMileageWithouChargeText(){
+<span class="nc" id="L380">        samokatMileageWithouChargeText.scrollTo().shouldBe(exist);</span>
+<span class="nc" id="L381">        samokatMileageWithouChargeText.getText();</span>
+<span class="nc" id="L382">        samokatMileageWithouChargeText.shouldBe(have(exactText(&quot;Проедет без поздарядки&quot;)));</span>
+<span class="nc" id="L383">        System.out.println(samokatMileageWithouChargeText);</span>
+<span class="nc" id="L384">    }</span>
+
+    //Проверка локатора 80 км'
+    public void  findeSamokatMileageWithouCharge(){
+<span class="fc" id="L388">        samokatMileageWithouCharge.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L389">        samokatMileageWithouCharge.getText();</span>
+<span class="fc" id="L390">        samokatMileageWithouCharge.shouldBe(have(exactText(&quot;80 км&quot;)));</span>
+<span class="fc" id="L391">        System.out.println(samokatMileageWithouCharge);</span>
+<span class="fc" id="L392">    }</span>
+
+    //Проверка локатора Выдерживает вес
+    public void  findeSamokatWeightStrengthText(){
+<span class="fc" id="L396">        samokatWeightStrengthText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L397">        samokatWeightStrengthText.getText();</span>
+<span class="fc" id="L398">        samokatWeightStrengthText.shouldBe(have(exactText(&quot;Выдерживает вес&quot;)));</span>
+<span class="fc" id="L399">        System.out.println(samokatWeightStrengthText);</span>
+<span class="fc" id="L400">    }</span>
+
+    public void  findeSamokatWeightStrength(){
+<span class="fc" id="L403">        samokatWeightStrength.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L404">        samokatWeightStrength.getText();</span>
+<span class="fc" id="L405">        samokatWeightStrength.shouldBe(have(exactText(&quot;120 кг&quot;)));</span>
+<span class="fc" id="L406">        System.out.println(samokatWeightStrength);</span>
+<span class="fc" id="L407">    }</span>
+
+    //проверка локатора &quot;Как это работает&quot;
+    public void  findeHowItWork(){
+<span class="fc" id="L411">        howItWork.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L412">        howItWork.getText();</span>
+<span class="fc" id="L413">        howItWork.shouldBe(have(exactText(&quot;Как это работает&quot;)));</span>
+<span class="fc" id="L414">        System.out.println(howItWork);</span>
+<span class="fc" id="L415">    }</span>
+
+    //проверка локатора кружка статуса заказа номер 1
+    public void  findeCircleOrderOne(){
+<span class="fc" id="L419">        circleOrderOne.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L420">        System.out.println(circleOrderOne);</span>
+<span class="fc" id="L421">    }</span>
+
+    //проверка локатора кружка статуса заказа номер 2
+    public void  findeCircleOrderTwo(){
+<span class="fc" id="L425">        circleOrderTwo.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L426">        System.out.println(circleOrderTwo);</span>
+<span class="fc" id="L427">    }</span>
+
+    //проверка локатора кружка статуса заказа номер 3
+    public void  findeCircleOrderThree(){
+<span class="fc" id="L431">        circleOrderThree.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L432">        System.out.println(circleOrderThree);</span>
+<span class="fc" id="L433">    }</span>
+
+    //проверка локатора кружка статуса заказа номер 4
+    public void  findeCircleOrderFoure(){
+<span class="fc" id="L437">        circleOrderFoure.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L438">        System.out.println(circleOrderFoure);</span>
+<span class="fc" id="L439">    }</span>
+
+
+    //проверка локатора &quot;Заказываете самокат&quot;
+    public void  findeMakeOrderText(){
+<span class="fc" id="L444">        makeOrderText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L445">        System.out.println(makeOrderText);</span>
+<span class="fc" id="L446">    }</span>
+
+    //проверка локатора &quot;Выбираете, когда и куда привезти&quot;
+    public void findeMakeOrderSubText(){
+<span class="fc" id="L450">        makeOrderSubText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L451">        System.out.println(makeOrderSubText);</span>
+<span class="fc" id="L452">    }</span>
+
+    //проверка локатора &quot;Курьер привозит самокат&quot;
+    public void  findeDeliverText(){
+<span class="fc" id="L456">        deliverText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L457">        System.out.println(deliverText);</span>
+<span class="fc" id="L458">    }</span>
+
+    //проверка локатора &quot;А вы — оплачиваете аренду&quot;
+    public void  findeDeliverSubText(){
+<span class="fc" id="L462">        deliverSubText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L463">        System.out.println(deliverSubText);</span>
+<span class="fc" id="L464">    }</span>
+
+    //проверка локатора &quot;Катаетесь&quot;
+    public void  findeDriveText(){
+<span class="fc" id="L468">        driveText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L469">        System.out.println(driveText);</span>
+<span class="fc" id="L470">    }</span>
+
+    //проверка локатора &quot;Сколько часов аренды осталось — видно на сайте&quot;
+    public void  findeDriveSubText(){
+<span class="fc" id="L474">        driveSubText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L475">        System.out.println(driveSubText);</span>
+<span class="fc" id="L476">    }</span>
+
+    //проверка локатора &quot;Курьер забирает самокат&quot;
+    public void  findeCourierReturnSamokatText(){
+<span class="fc" id="L480">        CourierRreturnSamokatText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L481">        System.out.println(CourierRreturnSamokatText);</span>
+<span class="fc" id="L482">    }</span>
+
+    //проверка локатора &quot;Когда аренда заканчивается&quot;
+    public void  findeCourierReturnSamokatSubText(){
+<span class="fc" id="L486">        CourierRreturnSamokatSubText.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L487">        System.out.println(CourierRreturnSamokatSubText);</span>
+<span class="fc" id="L488">    }</span>
+
+//Вопросы о важном
+
+
+    //проверка локатора &quot;Как это работает&quot;
+    public void  findeQuestionsAboutSamokat(){
+<span class="fc" id="L495">        questionsAboutSamokat.scrollTo().shouldBe(exist);</span>
+<span class="fc" id="L496">        questionsAboutSamokat.getText();</span>
+<span class="fc" id="L497">        questionsAboutSamokat.shouldBe(have(exactText(&quot;Вопросы о важном&quot;)));</span>
+<span class="fc" id="L498">        System.out.println(questionsAboutSamokat);</span>
+<span class="fc" id="L499">    }</span>
+/*
+    // Проверка локатора первой кнопки аккардиона &quot;Сколько это стоит? И как оплатить?&quot;
+    public void  findeAccardionOne(){
+    accardionOne.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+    // Проверка локатора текста  первой кнопки аккардиона &quot;Сколько это стоит? И как оплатить?&quot;
+    public void  findeAccardionOneText(){
+        accardionOne.scrollTo().shouldBe(Condition.visible).click();
+        accardionOneText.shouldBe(Condition.exist);
+        accardionOneText.getText();
+        accardionOneText.shouldBe(Condition.have(Condition.exactText(&quot;Сутки — 400 рублей. Оплата курьеру — наличными или картой.&quot;)));
+        System.out.println(accardionOneText);
+    }
+    // Проверка локатора текста второй кнопки аккардиона &quot;Хочу сразу несколько самокатов! Так можно?&quot;
+    public void  findeAccardionTwo(){
+
+        accardionTwo.scrollTo().shouldBe(Condition.visible).click();
+    }
+    // Проверка локатора текста второй кнопки аккардиона &quot;Пока что у нас так....&quot;
+    public void  findeAccardionTwoText(){
+        accardionTwo.scrollTo().shouldBe(Condition.visible).click();
+        accardionTwoText.shouldBe(Condition.exist);
+        accardionTwoText.getText();
+        accardionTwoText.shouldBe(Condition.have(Condition.exactText(&quot;Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.&quot;)));
+        System.out.println(accardionTwoText);
+    }
+    // Проверка локатора Третей кнопки аккардиона &quot;Как рассчитывается время аренды?&quot;
+    public void  findeAccardionThree(){
+        accardionThree.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+
+    // Проверка локатора текста третей кнопки аккардиона &quot;Допустим, вы оформляете заказ на 8 мая......&quot;
+    public void  findeAccardionThreeText(){
+        accardionThree.scrollTo().shouldBe(Condition.visible).click();
+        accardionThreeText.shouldBe(Condition.exist);
+        accardionThreeText.getText();
+        accardionThreeText.shouldBe(Condition.have(Condition.exactText(&quot;Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.&quot;)));
+        System.out.println(accardionThreeText);
+    }
+
+    // Проверка локатора текста четвертой кнопки аккардиона &quot;Можно ли заказать самокат прямо на сегодня?&quot;
+    public void  findeAccardionFoureText(){
+        accardionFoure.scrollTo().shouldBe(Condition.visible).click();
+        accardionFoureText.shouldBe(Condition.exist);
+        accardionFoureText.getText();
+        accardionFoureText.shouldBe(Condition.have(Condition.exactText(&quot;Только начиная с завтрашнего дня. Но скоро станем расторопнее.&quot;)));
+        System.out.println(accardionFoureText);
+    }
+
+    // Проверка четвертой кнопки аккардиона &quot;Можно ли заказать самокат прямо на сегодня?&quot;
+    public void  findeAccardionFoure(){
+        accardionFoure.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+    // Проверка локатора текста Пятой кнопки аккардиона &quot;Пока что нет!...&quot;
+    public void  findeAccardionFiveText(){
+        accardionFive.scrollTo().shouldBe(Condition.visible).click();
+        accardionFiveText.shouldBe(Condition.exist);
+        accardionFiveText.getText();
+        accardionFiveText.shouldBe(Condition.have(Condition.exactText(&quot;Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.&quot;)));
+        System.out.println(accardionFiveText);
+    }
+
+    // Проверка локатора Пятой  кнопки аккардиона &quot;Можно ли продлить заказ или вернуть самокат раньше?&quot;
+    public void  findeAccardionFive(){
+        accardionFive.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+
+
+    // Проверка локатора текста Шестой кнопки аккардиона &quot;Самокат приезжает к вам с полной зарядкой....&quot;
+    public void  findeAccardionSixText(){
+        accardionSix.scrollTo().shouldBe(Condition.visible).click();
+        accardionSixText.shouldBe(Condition.exist);
+        accardionSixText.getText();
+        accardionSixText.shouldBe(Condition.have(Condition.exactText(&quot;Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.&quot;)));
+        System.out.println(accardionSixText);
+    }
+
+    // Проверка Шестой  кнопки аккардиона &quot;Вы привозите зарядку вместе с самокатом?&quot;
+    public void  findeAccardionSix(){
+        accardionSix.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+    // Проверка Седьмой кнопки аккардиона &quot;Можно ли отменить заказ?&quot;
+    public void  findeAccardionSeven(){
+
+        accardionSeven.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+    // Проверка локатора Седьмой кнопки аккардиона &quot;Да, пока самокат не привезли. Штрафа не будет....&quot;
+    public void  findeAccardionSevenText(){
+        accardionSeven.scrollTo().shouldBe(Condition.visible).click();
+        accardionSevenText.shouldBe(Condition.exist);
+        accardionSevenText.getText();
+        accardionSevenText.shouldBe(Condition.have(Condition.exactText(&quot;Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.&quot;)));
+        System.out.println(accardionSevenText);
+    }
+
+    // Проверка локатора Восьмой кнопки аккардиона &quot;Да, обязательно. Всем самокатов! И Москве, и Московской области.&quot;
+    public void  findeAccardionEightText(){
+        accardionEight.scrollTo().shouldBe(Condition.visible).click();
+        accardionEightText.shouldBe(Condition.exist);
+        accardionEightText.getText();
+        accardionEightText.shouldBe(Condition.have(Condition.exactText(&quot;Да, обязательно. Всем самокатов! И Москве, и Московской области.&quot;)));
+        System.out.println(accardionEightText);
+}
+
+    // Проверка Восьмой кнопки аккардиона &quot;Я жизу за МКАДом, привезёте?&quot;
+    public void  findeAccardionEight(){
+        accardionEight.scrollTo().shouldBe(Condition.visible).click();
+    }
+
+    */
+
+
+
+    //кликаем сразу по всем кнопкам аккардиона
+    public Landing clickArrowButton(int numberArrow) {
+
+<span class="fc" id="L622">        arrowsButton.get(numberArrow).find(byXpath(&quot;.//div[contains(@id,'accordion__heading')]&quot;)).click();</span>
+<span class="fc" id="L623">        return this;</span>
+    }
+
+//проверяем чт окогда кликнули кнопку аккардиона то текст отображается
+    public Landing TextShouldBeVisible(int numberId) {
+<span class="fc" id="L628">        $(byId(&quot;accordion__panel-&quot;+numberId)).shouldBe(visible);</span>
+<span class="fc" id="L629">        return this;</span>
+        }
+
+    //проверка для локатора нижней кнопки  &quot;Заказать&quot;
+    public void  findeFooterOrder(){
+<span class="fc" id="L634">        footerOrder.scrollTo().shouldBe(visible).click();</span>
+<span class="fc" id="L635">    }</span>
+
+
+    public void clickCookies(){
+<span class="fc" id="L639">        cookies.scrollTo().shouldBe(visible).click();</span>
+<span class="fc" id="L640">    }</span>
+
+
+    }
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
